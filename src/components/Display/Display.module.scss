@@ -1,0 +1,35 @@
+main {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #EDEDE7;
+
+    .card {
+        background-color: white;
+        width: 30%;
+        margin: 2% auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        line-height: 2em;
+
+    
+        h2 {
+            margin: 1em;
+        }
+
+        img {
+            max-width: 70%;
+            margin: 2%;
+        }
+
+        h3 {
+            font-size: 35px;
+            color: #FF6F1A;
+        }
+    }
+}
