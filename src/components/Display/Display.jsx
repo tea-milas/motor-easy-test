@@ -1,47 +1,21 @@
-import React from 'react'
-import styles from './Display.module.scss'
+import React from "react";
+import styles from "./Display.module.scss";
 
-const Display = () => {
+
+const Display = (props) => {
+    const {tyres} = props;
     return (
         <main>
-            <section className={styles.card}>
-                <img src="https://www.blackcircles.com/wso/images/library/obj30060536?view=2885" alt="tire" />
-                <img src="https://images.blackcircles.com/img-gen/catalogue-tyre-brands/bridgestone-tyres-logo_2x.png" alt="bridgestone" />
-                <h2>Turanza T005 <br/> 205/55 R16 V (91) </h2>
-                <h3>47,60 £</h3>
+            {tyres.map(tyre => <section className={styles.card} key={tyre._id}>
+                <img src={tyre.img} alt={tyre.title} />
+                <img src={tyre.brand.logo} alt={tyre.brand.title} />
+                <h2>{tyre.title.toUpperCase()} <br/> {tyre.size} </h2>
+                <h3> £{tyre.price}</h3>
+                {console.log(tyre.price)}
             </section>
-            <section className={styles.card}>
-                <img src="https://www.blackcircles.com/wso/images/library/obj30060536?view=2885" alt="tire" />
-                <img src="https://images.blackcircles.com/img-gen/catalogue-tyre-brands/bridgestone-tyres-logo_2x.png" alt="bridgestone" />
-                <h2>Turanza T005 <br/> 205/55 R16 V (91) </h2>
-                <h3>47,60 £</h3>
-            </section>
-            <section className={styles.card}>
-                <img src="https://www.blackcircles.com/wso/images/library/obj30060536?view=2885" alt="tire" />
-                <img src="https://images.blackcircles.com/img-gen/catalogue-tyre-brands/bridgestone-tyres-logo_2x.png" alt="bridgestone" />
-                <h2>Turanza T005 <br/> 205/55 R16 V (91) </h2>
-                <h3>47,60 £</h3>
-            </section>
-            <section className={styles.card}>
-                <img src="https://www.blackcircles.com/wso/images/library/obj30060536?view=2885" alt="tire" />
-                <img src="https://images.blackcircles.com/img-gen/catalogue-tyre-brands/bridgestone-tyres-logo_2x.png" alt="bridgestone" />
-                <h2>Turanza T005 <br/> 205/55 R16 V (91) </h2>
-                <h3>47,60 £</h3>
-            </section>
-            <section className={styles.card}>
-                <img src="https://www.blackcircles.com/wso/images/library/obj30060536?view=2885" alt="tire" />
-                <img src="https://images.blackcircles.com/img-gen/catalogue-tyre-brands/bridgestone-tyres-logo_2x.png" alt="bridgestone" />
-                <h2>Turanza T005 <br/> 205/55 R16 V (91) </h2>
-                <h3>47,60 £</h3>
-            </section>
-            <section className={styles.card}>
-                <img src="https://www.blackcircles.com/wso/images/library/obj30060536?view=2885" alt="tire" />
-                <img src="https://images.blackcircles.com/img-gen/catalogue-tyre-brands/bridgestone-tyres-logo_2x.png" alt="bridgestone" />
-                <h2>Turanza T005 <br/> 205/55 R16 V (91) </h2>
-                <h3>47,60 £</h3>
-            </section>
+            )}
         </main>
-    )
-}
+    );
+};
 
-export default Display
+export default Display;

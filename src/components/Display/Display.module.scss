@@ -7,15 +7,18 @@ main {
     background-color: #EDEDE7;
 
     .card {
-        background-color: white;
+        background-color: rgb(255, 255, 255);
         width: 30%;
         margin: 2% auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 2px solid black;
+        border: 0;
+        border-radius: 7px;
         line-height: 2em;
+        box-shadow:  3px 3px 10px #c9c9c4,
+             -3px -3px 10px #ffffff;
 
     
         h2 {
@@ -28,8 +31,24 @@ main {
         }
 
         h3 {
+            margin-top: 0.5em;
             font-size: 35px;
             color: #FF6F1A;
         }
     }
 }
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 800px) {
+      main {
+          flex-direction: column;
+          justify-content: center;
+          width: 100%;
+
+          .card {
+              margin-top: 4%;
+              width: 95%;
+          }
+      }
+  }

@@ -14,6 +14,7 @@ nav {
     background-color: #4A4545;
 
     .nav__filters {
+        font-size: 15px;
         position: sticky;
         width: 100%;
         display: flex;
@@ -27,19 +28,49 @@ nav {
         }
 
         select {
+            cursor: pointer;
             margin: 3% 0;
         }
     
         input {
             width: 65%;
             margin: 7% 0;
-            padding: 5px;
+            padding: 10px 0 10px 10px;
             border: 0;
-            border-radius: 5px;
             border-bottom: 2px solid #FF6F1A;
-            background-color: #4A4545;
+            border-radius: 7px;
+            background: #4A4545;
+            box-shadow: inset 10px 10px 20px #3c3838,
+            inset -10px -10px 20px #585252;
             color: #F6F4F4;
-            font-size: 18px;
+            
+            &:focus {
+                background: linear-gradient(145deg, #4f4a4a, #433e3e);
+                box-shadow:  10px 10px 20px #3c3838,
+                            -10px -10px 20px #585252;
+            }
+        }
+
+        .nav__reset_btn {
+            cursor: pointer;
+            width: 65%;
+            padding: 10px 5px;
+            margin: 7% 0;
+            border: 0;
+            border-radius: 7px;
+            background: #FF6F1A;
+            box-shadow:  10px 10px 20px #3c3838,
+                        -10px -10px 20px #585252;
+            color: #F6F4F4;
+
+            &:active {
+                box-shadow: inset 10px 10px 20px #cf5a15,
+                            inset -10px -10px 20px #ff841f;
+            }
+
+            &:hover {
+                background: linear-gradient(145deg, #e66417, #ff771c);
+            }
         }
     }
 
