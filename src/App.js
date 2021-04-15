@@ -9,7 +9,7 @@ function App() {
     const [sizes,setSizes] = useState();
 
     const getTyres = () => {
-        fetch("http://localhost:5000/tyres")
+        fetch(`${process.env.REACT_APP_HOST}/tyres`)
             .then(response => response.json())
             .then(response =>{
                 console.log(response);
@@ -18,7 +18,7 @@ function App() {
     };
 
     const getBrands = () => {
-        fetch("http://localhost:5000/brands")
+        fetch(`${process.env.REACT_APP_HOST}/brands`)
             .then(response => response.json())
             .then(response => {
                 console.log(response);
@@ -27,7 +27,7 @@ function App() {
     };
 
     const getSizes = () => {
-        fetch("http://localhost:5000/tyres/sizes")
+        fetch(`${process.env.REACT_APP_HOST}/tyres/sizes`)
             .then(response => response.json())
             .then(response => setSizes(response));
     };

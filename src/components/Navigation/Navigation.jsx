@@ -11,20 +11,20 @@ const Navigation = (props) => {
     };
 
     const filterBySizes = (selectedSize) => {
-        fetch(`http://localhost:5000/tyres?size=${selectedSize}`)
+        fetch(`${process.env.REACT_APP_HOST}/tyres?size=${selectedSize}`)
             .then(response => response.json())
             .then(response => setTyres(response));
     };
 
     const filterByBrand = (selectedBrand) => {
-        fetch(`http://localhost:5000/tyres?brand=${selectedBrand}`)
+        fetch(`${process.env.REACT_APP_HOST}/tyres?brand=${selectedBrand}`)
             .then(response => response.json())
             .then(response => setTyres(response));
     };
 
     const filterBySearch = (searchText) => {
         if (searchText.length > 0) {
-            fetch(`http://localhost:5000/tyres?title=${searchText}`)
+            fetch(`${process.env.REACT_APP_HOST}/tyres?title=${searchText}`)
                 .then(response => response.json())
                 .then(response => setTyres(response));
         } else {
