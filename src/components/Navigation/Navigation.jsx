@@ -36,6 +36,11 @@ const Navigation = (props) => {
         getTyres();
     };
 
+    const showPage = (page) => {
+        fetch(`http://localhost:5000/tyres?page=${page}&limit=6`).then(response => response.json()).then(response => setTyres(response));
+    };
+
+
     useEffect(() => {
         window.addEventListener("resize", handleWindowSizeChange);
         return () => {
@@ -43,11 +48,11 @@ const Navigation = (props) => {
         };
     }, []);
 
-    let isMobile = (width <= 760);
+    let isMobile = (width <= 800);
 
     return (
         <>
-            {isMobile ? <NavMobile brands={brands} getTyres={getTyres} setTyres={setTyres} sizes={sizes} filterByBrand={filterByBrand} filterBySizes={filterBySizes} filterBySearch={filterBySearch} resetFilters={resetFilters}/> : 
+            {isMobile ? <NavMobile brands={brands} getTyres={getTyres} setTyres={setTyres} sizes={sizes} filterByBrand={filterByBrand} filterBySizes={filterBySizes} filterBySearch={filterBySearch} resetFilters={resetFilters} showPage={showPage}/> : 
                 <nav>
                     <div className={styles.nav__filters}>
                         <h1 className={styles.nav__title}>MotorEasy Test</h1>
@@ -65,7 +70,14 @@ const Navigation = (props) => {
                         <input type="text" placeholder="Search by name..." onChange={(e) => filterBySearch(e.target.value)}/>
 
                         <button className={styles.nav__reset_btn} onClick={resetFilters}>Reset filters</button>
+                        
+                        <select className={styles.pagination} name="page" onChange={(e) => showPage(e.target.value)}>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
                     </div>
+                    
                 </nav>
             }
         </>

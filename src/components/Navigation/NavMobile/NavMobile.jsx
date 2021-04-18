@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import styles from "./NavMobile.module.scss";
 
 const NavMobile = (props) => {
-    const {brands, setTyres, getTyres, sizes, filterByBrand, filterBySearch, filterBySizes, resetFilters} = props;
+    const {brands, setTyres, getTyres, sizes, filterByBrand, filterBySearch, filterBySizes, resetFilters, showPage} = props;
     const [isOpen,setIsOpen] = useState(false);
 
     const toggleNav = () => {
@@ -30,6 +30,11 @@ const NavMobile = (props) => {
                 <input type="text" placeholder="Search by name..." onChange={(e) => filterBySearch(e.target.value)}/>
 
                 <button className={styles.nav__reset_btn} onClick={resetFilters}>Reset filters</button>
+                <select className={styles.pagination} name="page" onChange={(e) => showPage(e.target.value)}>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
             </nav>}
         </div>
     );
